@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+import os
+import sys
+
+Import('env')
+
+env_module = env.Clone()
+
+# include path
+env_module.Append(CPPPATH=["."])
+
+# add all *.cpp files to compile
+sources = []
+for root, dirs, files in os.walk('.'):
+    for f in files:
+        if f.endswith('.cpp'):
+            sources.append(root + '/' + f)
+
+env_module.add_source_files(env_module.modules_sources, sources)

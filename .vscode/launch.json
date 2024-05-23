@@ -1,0 +1,46 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		// editor
+		{
+			"name": "editor [debug]",
+			"type": "cppvsdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/godot/bin/godot.windows.editor.dev.x86_64.exe",
+			"args": [
+				"--path",
+				"${workspaceFolder}/demo/project",
+				"--editor"
+			],
+			"stopAtEntry": false,
+			"cwd": "${workspaceFolder}",
+			"environment": [],
+			"console": "internalConsole",
+			"visualizerFile": "${workspaceFolder}/godot/platform/windows/godot.natvis"
+		},
+		// game
+		{
+			"name": "game [debug]",
+			"type": "cppvsdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/godot/bin/godot.windows.editor.dev.x86_64.exe",
+			"args": [
+				"--path",
+				"${workspaceFolder}/demo/project"
+			],
+			"stopAtEntry": false,
+			"cwd": "${workspaceFolder}",
+			"environment": [],
+			"console": "internalConsole",
+			"visualizerFile": "${workspaceFolder}/godot/platform/windows/godot.natvis"
+		},
+		// attach
+		{
+			"name": "attach",
+			"type": "cppvsdbg",
+			"request": "attach",
+			"processId": "${command:pickProcess}",
+			"visualizerFile": "${workspaceFolder}/godot/platform/windows/godot.natvis"
+		}
+	]
+}

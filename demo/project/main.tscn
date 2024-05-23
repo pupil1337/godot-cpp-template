@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://615qg0lc6krx"]
+
+[node name="Main" type="Node2D"]
+
+[node name="DemoModule" type="DemoModule" parent="."]
+
+[node name="DemoGdextension" type="DemoGdextension" parent="."]

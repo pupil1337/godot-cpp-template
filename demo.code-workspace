@@ -1,0 +1,50 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools",
+			"llvm-vs-code-extensions.vscode-clangd",
+			"xaver.clang-format",
+			"editorconfig.editorconfig"
+		]
+	},
+	"settings": {
+		"files.exclude": {
+			"**/__pycache__": true,
+			"**/.sconsign.dblite": true,
+			"**/.sconf_temp": true,
+			"**/.scons_env.json": true,
+			"**/.scons_node_count": true,
+			"**/.sconsign5.dblite": true,
+			"**/.github": true,
+			"**/.cache/": true,
+			"**/.vc.db": true,
+			"**/*.log": true,
+			"**/*.dll": true,
+			"**/*.exe": true,
+			"**/*.exp": true,
+			"**/*.ilk": true,
+			"**/*.lib": true,
+			"**/*.obj": true,
+			"**/*.pdb": true,
+			"demo/gdextension/bin": true,
+			"demo/project/bin/windows": true
+		},
+		"search.useIgnoreFiles": false,
+		// clangd-format
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "xaver.clang-format",
+		// clangd
+		"C_Cpp.intelliSenseEngine": "disabled",
+		"clangd.arguments": [
+			"--compile-commands-dir=${workspaceFolder}",
+			"--background-index",
+			"--clang-tidy",
+			"--header-insertion=iwyu"
+		],
+	}
+}

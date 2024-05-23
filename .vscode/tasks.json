@@ -1,0 +1,167 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		// editor & game
+		{
+			"label": "editor&game [debug]",
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"editor [debug]",
+				"update gdextension api",
+				"game [debug]"
+			],
+			"problemMatcher": []
+		},
+
+		// -----------------------------------------------------------------
+		// Editor
+		// -----------------------------------------------------------------
+
+		// editor
+		{
+			"label": "editor [debug]",
+			"options": {
+				"cwd": "${workspaceFolder}/godot"
+			},
+			"type": "shell",
+			"command": "scons",
+			"args": [
+				"platform=windows",
+				"bits=64",
+				"target=editor",
+				"custom_modules=../demo/module",
+				"dev_build=yes",
+				"debug_symbols=yes",
+				"compiledb=yes"
+			],
+			"group": "build",
+			"problemMatcher": "$msCompile"
+		},
+
+		// -----------------------------------------------------------------
+		// GDExtension API
+		// -----------------------------------------------------------------
+
+		// generate gdextension api
+		{
+			"label": "generate gdextension api",
+			"options": {
+				"cwd": "${workspaceFolder}/godot/bin"
+			},
+			"type": "shell",
+			"command": "./godot.windows.editor.dev.x86_64.console.exe",
+			"args": [
+				"--dump-extension-api",
+				"--dump-gdextension-interface",
+				"--headless",
+				"--script"
+			],
+			"hide": true,
+			"problemMatcher": []
+		},
+		// copy extension extension_api.json
+		{
+			"label": "copy extension_api.json",
+			"type": "shell",
+			"command": "copy",
+			"args": [
+				"${workspaceFolder}/godot/bin/extension_api.json",
+				"${workspaceFolder}/godot-cpp/gdextension"
+			],
+			"hide": true,
+			"problemMatcher": []
+		},
+		// copy extension gdextension_interface.h
+		{
+			"label": "copy gdextension_interface.h",
+			"type": "shell",
+			"command": "copy",
+			"args": [
+				"${workspaceFolder}/godot/bin/gdextension_interface.h",
+				"${workspaceFolder}/godot-cpp/gdextension"
+			],
+			"hide": true,
+			"problemMatcher": []
+		},
+		// update extension api
+		{
+			"label": "update gdextension api",
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"generate gdextension api",
+				"copy extension_api.json",
+				"copy gdextension_interface.h"
+			],
+			"problemMatcher": []
+		},
+
+		// -----------------------------------------------------------------
+		// Game
+		// -----------------------------------------------------------------
+
+		// game-1: gdextension
+		{
+			"label": "game-1 [debug]",
+			"options": {
+				"cwd": "${workspaceFolder}/demo/gdextension"
+			},
+			"type": "shell",
+			"command": "scons",
+			"args": [
+				"platform=windows",
+				"bits=64",
+				"target=editor",
+				"dev_build=yes",
+				"debug_symbols=yes",
+				"compiledb=yes"
+			],
+			"group": "build",
+			"hide": true,
+			"problemMatcher": "$msCompile"
+		},
+		// game-2: merge compile_commands.json
+		{
+			"label": "game-2 merge compile_commands.json",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"type": "shell",
+			"command": "./jq.exe",
+			"args": [
+				"-s",
+				"\"add\"",
+				"godot/compile_commands.json",
+				"demo/gdextension/compile_commands.json",
+				"|",
+				"Out-File",
+				"-Encoding",
+				"ascii",
+				"compile_commands.json"
+			],
+			"hide": true,
+			"problemMatcher": []
+		},
+		// game-3: command clangd.restart
+		{
+			"label": "game-3 @command:clangd.restart",
+			"command": "${command:clangd.restart}",
+			"hide": true,
+			"problemMatcher": []
+		},
+		// game
+		{
+			"label": "game [debug]",
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"game-1 [debug]",
+				"game-2 merge compile_commands.json",
+				"game-3 @command:clangd.restart"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
+		}
+	]
+}
