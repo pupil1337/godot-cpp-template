@@ -7,3 +7,4 @@ reloadable = true
 
 [libraries]
 windows.debug.x86_64 = "res://bin/windows/demo_gdextension.windows.editor.dev.x86_64.dll"
+linux.debug.x86_64 = "res://bin/linux/game_gdextension.linux.editor.dev.x86_64.so"

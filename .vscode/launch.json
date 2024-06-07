@@ -1,15 +1,60 @@
 {
 	"version": "0.2.0",
 	"configurations": [
+		// ====================================================================
+		// Linux
+		// ====================================================================
 		// editor
 		{
-			"name": "editor [debug]",
+			"name": "editor [debug] - lldb",
+			"type": "lldb",
+			"request": "launch",
+			"program": "${workspaceFolder}/godot/bin/godot.linuxbsd.editor.dev.x86_64.llvm",
+			"args": [
+				"--path",
+				"${workspaceFolder}/ppgame/project",
+				"--editor"
+			],
+			"stopOnEntry": false,
+			"cwd": "${workspaceFolder}",
+			"console": "internalConsole",
+		},
+
+		// game
+		{
+			"name": "game [debug] - lldb",
+			"type": "lldb",
+			"request": "launch",
+			"program": "${workspaceFolder}/godot/bin/godot.linuxbsd.editor.dev.x86_64.llvm",
+			"args": [
+				"--path",
+				"${workspaceFolder}/ppgame/project",
+			],
+			"stopOnEntry": false,
+			"cwd": "${workspaceFolder}",
+			"console": "internalConsole",
+		},
+
+		// attach
+		{
+			"name": "attach - lldb",
+			"type": "lldb",
+			"request": "attach",
+			"pid": "${command:pickMyProcess}"
+		},
+
+		// ====================================================================
+		// Windows
+		// ====================================================================
+		// editor
+		{
+			"name": "editor [debug] - cppvsdbg",
 			"type": "cppvsdbg",
 			"request": "launch",
 			"program": "${workspaceFolder}/godot/bin/godot.windows.editor.dev.x86_64.exe",
 			"args": [
 				"--path",
-				"${workspaceFolder}/demo/project",
+				"${workspaceFolder}/ppgame/project",
 				"--editor"
 			],
 			"stopAtEntry": false,
@@ -20,13 +65,13 @@
 		},
 		// game
 		{
-			"name": "game [debug]",
+			"name": "game [debug] - cppvsdbg",
 			"type": "cppvsdbg",
 			"request": "launch",
 			"program": "${workspaceFolder}/godot/bin/godot.windows.editor.dev.x86_64.exe",
 			"args": [
 				"--path",
-				"${workspaceFolder}/demo/project"
+				"${workspaceFolder}/ppgame/project"
 			],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
@@ -36,7 +81,7 @@
 		},
 		// attach
 		{
-			"name": "attach",
+			"name": "attach - cppvsdbg",
 			"type": "cppvsdbg",
 			"request": "attach",
 			"processId": "${command:pickProcess}",

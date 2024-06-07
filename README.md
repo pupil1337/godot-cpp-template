@@ -1,13 +1,12 @@
 # godot-cpp-template
-## Support development environments
-windows, vistual studio, visual studio code, llvm
 
-windows: current configuration is only supported under windows.  
+# Windows
+## Development environments
+vistual studio, visual studio code, llvm
+
 [visual studio](https://visualstudio.microsoft.com/zh-hans/downloads/#build-tools-for-visual-studio-2022): for msvc build.  
 [visual studio code](https://code.visualstudio.com/Download#): main work in this.  
 [llvm](https://releases.llvm.org/): for clangd language server.  
-
-(The above are the required environments, all of which are replaceable, but currently only these are supported, and other environment configurations are similar to them)
 
 ## Setp-By-Step
 ### install
@@ -28,4 +27,19 @@ then install workspace recommend extensions.
 1. **Compile:** Click vscode Menu Bar **Terminal**->**Run Task...**->**editor&game [debug]**, this operate will compile the whole code: godot,godot-cpp,game(game was compiled together with godot-cpp)
 
 2. **Launch:** Recommend run **editor.bat** to Open **Editor**.  
-Recommend Click vscode Activity Bar **Run and Debug(Ctrl+Shift+D)**->**game [edbug]**->**Start Debugging(F5)** to Run **Game**, because this operate will debug our game.
+Recommend Click vscode Activity Bar **Run and Debug(Ctrl+Shift+D)**->**game [edbug] - cppvsdbg**->**Start Debugging(F5)** to Run **Game**, because this operate will debug our game.
+
+# Linux
+## Development environments
+clang, mold, pyston
+
+## Setp-By-Step
+### install
+See [Godot Docs: Compiling for Linux, *BSD](https://docs.godotengine.org/en/stable/contributing/development/compiling/compiling_for_linuxbsd.html)
+
+### run demo
+> Those step is base on open 'visual studio code' workspace(double-click 'demo.code-workspace').
+1. **Compile:** Click vscode Menu Bar **Terminal**->**Run Task...**->**editor&game [debug]**, this operate will compile the whole code: godot,godot-cpp,game(game was compiled together with godot-cpp)
+
+2. **Launch:** Recommend run **editor.sh** to Open **Editor**.  
+Recommend Click vscode Activity Bar **Run and Debug(Ctrl+Shift+D)**->**game [edbug] -- lldb**->**Start Debugging(F5)** to Run **Game**, because this operate will debug our game.

@@ -31,6 +31,8 @@
 			"**/*.lib": true,
 			"**/*.obj": true,
 			"**/*.pdb": true,
+			"**/*.os": true,
+			"**/*.so": true,
 			"demo/gdextension/bin": true,
 			"demo/project/bin/windows": true
 		},
