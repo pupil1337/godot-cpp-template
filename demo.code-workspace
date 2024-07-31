@@ -33,6 +33,7 @@
 			"**/*.pdb": true,
 			"**/*.os": true,
 			"**/*.so": true,
+			"**/*.o": true,
 			"demo/gdextension/bin": true,
 			"demo/project/bin/windows": true
 		},

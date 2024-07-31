@@ -32,7 +32,7 @@
 					"platform=windows",
 					"bits=64",
 					"target=editor",
-					"custom_modules=../ppgame/game_module",
+					"custom_modules=../demo/module",
 					"dev_build=yes",
 					"debug_symbols=yes",
 					"compiledb=yes",
@@ -47,7 +47,7 @@
 					"platform=linuxbsd",
 					"bits=64",
 					"target=editor",
-					"custom_modules=../ppgame/game_module",
+					"custom_modules=../demo/module",
 					"use_llvm=yes",
 					"linker=mold",
 					"dev_build=yes",
@@ -148,7 +148,7 @@
 		{
 			"label": "game-1 [debug]",
 			"options": {
-				"cwd": "${workspaceFolder}/ppgame/game_gdextension"
+				"cwd": "${workspaceFolder}/demo/gdextension"
 			},
 			"type": "shell",
 
@@ -195,7 +195,7 @@
 					"-s",
 					"\"add\"",
 					"godot/compile_commands.json",
-					"ppgame/game_gdextension/compile_commands.json",
+					"demo/gdextension/compile_commands.json",
 					"|",
 					"Out-File",
 					"-Encoding",
@@ -210,7 +210,7 @@
 					"--slurp",
 					"'add'",
 					"godot/compile_commands.json",
-					"ppgame/game_gdextension/compile_commands.json",
+					"demo/gdextension/compile_commands.json",
 					">",
 					"compile_commands.json"
 				]

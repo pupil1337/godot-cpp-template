@@ -12,7 +12,7 @@
 			"program": "${workspaceFolder}/godot/bin/godot.linuxbsd.editor.dev.x86_64.llvm",
 			"args": [
 				"--path",
-				"${workspaceFolder}/ppgame/project",
+				"${workspaceFolder}/demo/project",
 				"--editor"
 			],
 			"stopOnEntry": false,
@@ -28,7 +28,7 @@
 			"program": "${workspaceFolder}/godot/bin/godot.linuxbsd.editor.dev.x86_64.llvm",
 			"args": [
 				"--path",
-				"${workspaceFolder}/ppgame/project",
+				"${workspaceFolder}/demo/project",
 			],
 			"stopOnEntry": false,
 			"cwd": "${workspaceFolder}",
@@ -54,7 +54,7 @@
 			"program": "${workspaceFolder}/godot/bin/godot.windows.editor.dev.x86_64.exe",
 			"args": [
 				"--path",
-				"${workspaceFolder}/ppgame/project",
+				"${workspaceFolder}/demo/project",
 				"--editor"
 			],
 			"stopAtEntry": false,
@@ -71,7 +71,7 @@
 			"program": "${workspaceFolder}/godot/bin/godot.windows.editor.dev.x86_64.exe",
 			"args": [
 				"--path",
-				"${workspaceFolder}/ppgame/project"
+				"${workspaceFolder}/demo/project"
 			],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
