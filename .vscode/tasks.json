@@ -34,6 +34,8 @@
 					"target=editor",
 					"custom_modules=../demo/module",
 					"dev_build=yes",
+					"dev_mode=yes",
+					"verbose=no",
 					"debug_symbols=yes",
 					"compiledb=yes",
 					"deprecated=no",
@@ -51,6 +53,8 @@
 					"use_llvm=yes",
 					"linker=mold",
 					"dev_build=yes",
+					"dev_mode=yes",
+					"verbose=no",
 					"debug_symbols=yes",
 					"compiledb=yes",
 					"deprecated=no",
@@ -156,30 +160,28 @@
 				"command": "scons",
 				"args": [
 					"platform=windows",
-					"bits=64",
 					"target=editor",
 					"dev_build=yes",
 					"debug_symbols=yes",
 					"compiledb=yes"
 				],
+				"problemMatcher": "$msCompile"
 			},
 
 			"linux": {
 				"command": "pyston-scons",
 				"args": [
 					"platform=linux",
-					"bits=64",
 					"target=editor",
 					"use_llvm=yes",
 					"dev_build=yes",
 					"debug_symbols=yes",
 					"compiledb=yes"
-				]
+				],
+				"problemMatcher": "$gcc"
 			},
 
-			"group": "build",
-			"hide": true,
-			"problemMatcher": "$msCompile"
+			"hide": true
 		},
 		// game-2: merge compile_commands.json
 		{
