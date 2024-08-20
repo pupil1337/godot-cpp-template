@@ -7,9 +7,12 @@
 	"extensions": {
 		"recommendations": [
 			"ms-vscode.cpptools",
-			"llvm-vs-code-extensions.vscode-clangd",
 			"xaver.clang-format",
-			"editorconfig.editorconfig"
+			"llvm-vs-code-extensions.vscode-clangd",
+			"vadimcn.vscode-lldb",
+			"editorconfig.editorconfig",
+			"ms-python.python",
+			"gruntfuggly.todo-tree"
 		]
 	},
 	"settings": {
@@ -21,7 +24,6 @@
 			"**/.scons_node_count": true,
 			"**/.sconsign5.dblite": true,
 			"**/.github": true,
-			"**/.cache/": true,
 			"**/.vc.db": true,
 			"**/*.log": true,
 			"**/*.dll": true,
@@ -31,14 +33,17 @@
 			"**/*.lib": true,
 			"**/*.obj": true,
 			"**/*.pdb": true,
+			"**/.cache/": true,
 			"**/*.os": true,
 			"**/*.so": true,
 			"**/*.o": true,
+			"**/*.a": true,
+			"**/*.llvm.a": true,
 			"demo/gdextension/bin": true,
 			"demo/project/bin/windows": true
 		},
 		"search.useIgnoreFiles": false,
-		// clangd-format
+		// clang-format
 		"editor.formatOnSave": true,
 		"editor.defaultFormatter": "xaver.clang-format",
 		// clangd
@@ -48,6 +53,6 @@
 			"--background-index",
 			"--clang-tidy",
 			"--header-insertion=iwyu"
-		],
+		]
 	}
 }

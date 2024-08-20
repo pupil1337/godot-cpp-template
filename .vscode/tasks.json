@@ -20,11 +20,10 @@
 		// editor
 		{
 			"label": "editor [debug]",
+			"type": "shell",
 			"options": {
 				"cwd": "${workspaceFolder}/godot"
 			},
-			"type": "shell",
-			"group": "build",
 
 			"windows": {
 				"command": "scons",
@@ -38,7 +37,7 @@
 					"verbose=no",
 					"debug_symbols=yes",
 					"compiledb=yes",
-					"deprecated=no",
+					"deprecated=no"
 				],
 				"problemMatcher": "$msCompile"
 			},
@@ -57,7 +56,7 @@
 					"verbose=no",
 					"debug_symbols=yes",
 					"compiledb=yes",
-					"deprecated=no",
+					"deprecated=no"
 				],
 				"problemMatcher": "$gcc"
 			}
@@ -70,10 +69,10 @@
 		// generate gdextension api
 		{
 			"label": "generate gdextension api",
+			"type": "shell",
 			"options": {
 				"cwd": "${workspaceFolder}/godot/bin"
 			},
-			"type": "shell",
 			
 			"windows": {
 				"command": "./godot.windows.editor.dev.x86_64.console.exe"
@@ -150,11 +149,11 @@
 
 		// game-1: gdextension
 		{
-			"label": "game-1 [debug]",
+			"label": "game-1 game [debug]",
+			"type": "shell",
 			"options": {
 				"cwd": "${workspaceFolder}/demo/gdextension"
 			},
-			"type": "shell",
 
 			"windows": {
 				"command": "scons",
@@ -163,7 +162,9 @@
 					"target=editor",
 					"dev_build=yes",
 					"debug_symbols=yes",
-					"compiledb=yes"
+					"compiledb=yes",
+					"warnings=extra",
+					"werror=yes"
 				],
 				"problemMatcher": "$msCompile"
 			},
@@ -176,7 +177,9 @@
 					"use_llvm=yes",
 					"dev_build=yes",
 					"debug_symbols=yes",
-					"compiledb=yes"
+					"compiledb=yes",
+					"warnings=extra",
+					"werror=yes"
 				],
 				"problemMatcher": "$gcc"
 			},
@@ -186,10 +189,10 @@
 		// game-2: merge compile_commands.json
 		{
 			"label": "game-2 merge compile_commands.json",
+			"type": "shell",
 			"options": {
 				"cwd": "${workspaceFolder}"
 			},
-			"type": "shell",
 			
 			"windows": {
 				"command": "./jq.exe",
@@ -233,7 +236,7 @@
 			"label": "game [debug]",
 			"dependsOrder": "sequence",
 			"dependsOn": [
-				"game-1 [debug]",
+				"game-1 game [debug]",
 				"game-2 merge compile_commands.json",
 				"game-3 @command:clangd.restart"
 			],
