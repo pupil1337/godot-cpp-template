@@ -43,14 +43,14 @@
 			},
 
 			"linux": {
-				"command": "pyston-scons",
+				"command": "scons",
 				"args": [
 					"platform=linuxbsd",
 					"bits=64",
 					"target=editor",
 					"custom_modules=../demo/module",
 					"use_llvm=yes",
-					"linker=mold",
+					"linker=lld",
 					"dev_build=yes",
 					"dev_mode=yes",
 					"verbose=no",
@@ -170,7 +170,7 @@
 			},
 
 			"linux": {
-				"command": "pyston-scons",
+				"command": "scons",
 				"args": [
 					"platform=linux",
 					"target=editor",

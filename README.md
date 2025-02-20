@@ -31,7 +31,7 @@ Recommend Click vscode Activity Bar **Run and Debug(Ctrl+Shift+D)**->**game [edb
 
 # Linux
 ## Development environments
-clang, mold, pyston
+clang, lld
 
 ## Setp-By-Step
 ### install
