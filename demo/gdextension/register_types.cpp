@@ -6,6 +6,7 @@
 #include <godot_cpp/godot.hpp>
 
 #include "demo_gdextension.h"
+#include "demo_gdextension2.h"
 
 void initialize_gdextension_types(ModuleInitializationLevel p_level) {
 	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
@@ -13,6 +14,7 @@ void initialize_gdextension_types(ModuleInitializationLevel p_level) {
 	}
 
 	GDREGISTER_CLASS(DemoGdextension)
+	GDREGISTER_CLASS(DemoGdextension2);
 
 	// Your Class...
 }

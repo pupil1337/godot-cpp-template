@@ -5,17 +5,20 @@ Diagnostics:
 ...
 
 ---
+Style:
+  QuotedHeaders: "demo/gdextension/.*"
+  AngledHeaders: "godot_cpp/.*"
+
 # FIXME: those disable or not-enable by godot-cpp
 If:
   PathMatch: demo/.*
 
 CompileFlags:
   Remove: [
-		-Wno-ordered-compare-function-pointers,
+    -Wno-ordered-compare-function-pointers,
     -Wno-unused-parameter,
-		-Wnon-virtual-dtor
+    -Wnon-virtual-dtor
   ]
 ...
 
-# FIXME: "" or <>         https://github.com/llvm/llvm-project/pull/67749
 # FIXME: Hover doxygen    https://github.com/clangd/clangd/issues/529
