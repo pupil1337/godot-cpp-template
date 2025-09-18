@@ -73,7 +73,7 @@
 			"options": {
 				"cwd": "${workspaceFolder}/godot/bin"
 			},
-			
+
 			"windows": {
 				"command": "./godot.windows.editor.dev.x86_64.console.exe"
 			},
@@ -190,37 +190,14 @@
 		{
 			"label": "game-2 merge compile_commands.json",
 			"type": "shell",
+			"command": "python",
 			"options": {
 				"cwd": "${workspaceFolder}"
 			},
-			
-			"windows": {
-				"command": "./jq.exe",
-				"args": [
-					"-s",
-					"\"add\"",
-					"godot/compile_commands.json",
-					"demo/gdextension/compile_commands.json",
-					"|",
-					"Out-File",
-					"-Encoding",
-					"ascii",
-					"compile_commands.json"
-				],
-			},
+			"args": [
+				"merge_compile_commands.py"
+			],
 
-			"linux": {
-				"command": "jq",
-				"args": [
-					"--slurp",
-					"'add'",
-					"godot/compile_commands.json",
-					"demo/gdextension/compile_commands.json",
-					">",
-					"compile_commands.json"
-				]
-			},
-			
 			"hide": true,
 			"problemMatcher": []
 		},
